@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相册 · 静泊小筑</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="index.html">🌿 静泊小筑</a></div>
+        <button class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" data-page="home">首页</a>
+            <a href="articles.html" data-page="articles">文章</a>
+            <a href="gallery.html" data-page="gallery" class="active">相册</a>
+            <a href="treehole.html" data-page="treehole">树洞</a>
+            <div class="auth-area" id="authArea">
+                <div id="userMenuContainer">
+                    <button id="userMenuBtn" class="user-menu-btn" onclick="document.getElementById('userDropdown').classList.toggle('dropdown-open');event.stopPropagation();">
+                        <img id="navAvatar" src="" alt="" class="nav-avatar">
+                        <span id="navUserName"></span>
+                        <i class="fa-solid fa-chevron-down nav-chevron"></i>
+                    </button>
+                    <div id="userDropdown" class="user-dropdown-web">
+                        <a href="profile.html" class="dropdown-item"><i class="fa-regular fa-user"></i> 个人资料</a>
+                        <a href="editor.html" class="dropdown-item"><i class="fa-regular fa-pen-to-square"></i> 写文章</a>
+                        <a href="my-articles.html" class="dropdown-item"><i class="fa-regular fa-newspaper"></i> 我的文章</a>
+                        <a href="my-drafts.html" class="dropdown-item"><i class="fa-regular fa-file-lines"></i> 草稿箱</a>
+                        <a href="my-photos.html" class="dropdown-item"><i class="fa-regular fa-images"></i> 我的相册</a>
+                        <hr class="dropdown-divider">
+                        <button id="logoutBtnDropdown" class="dropdown-logout-btn"><i class="fa-solid fa-right-from-bracket"></i> 注销</button>
+                    </div>
+                </div>
+                <button id="loginBtn" class="btn btn-primary"><i class="fa-regular fa-user"></i> 登录</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section id="gallery" class="page active-page">
+            <h2 class="page-title"><i class="fa-regular fa-images"></i> 胶片暗房</h2>
+            <div class="gallery-grid">
+                <div class="loading-placeholder"><i class="fa-solid fa-spinner fa-spin"></i> 加载中...</div>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer-wrapper">
+        <hr>
+        <div class="footer-tip">✨ 静泊小筑 · 用代码记录成长，用文字分享经验</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>

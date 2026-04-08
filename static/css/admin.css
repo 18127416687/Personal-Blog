@@ -1,0 +1,264 @@
+/* ==================== 管理后台独有样式 ==================== */
+
+/* 头像上传 */
+.profile-edit-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 列表头部 */
+.my-articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.my-articles-header h2 {
+    margin-bottom: 0;
+}
+
+.my-interactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* 列表样式 */
+.my-articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.my-article-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fafbfc;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.my-article-item:hover {
+    background: #f0f7ff;
+}
+
+.my-article-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.my-article-info h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-article-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.my-article-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* 状态标签 */
+.status-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.status-badge.public { background: #dcfce7; color: #16a34a; }
+.status-badge.private { background: #fef3c7; color: #d97706; }
+.status-badge.scheduled { background: #e0e7ff; color: #4f46e5; }
+
+/* 操作按钮 */
+.my-article-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.my-article-actions .btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+/* 侧边栏互动卡片 */
+.sidebar-interactions-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-interactions-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.sidebar-interactions-title i { color: #3b82f6; }
+
+.sidebar-filter-bar {
+    display: flex;
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
+}
+
+.sidebar-filter-btn {
+    flex: 1;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    color: #666;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.sidebar-filter-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+.sidebar-filter-btn.active { background: #3b82f6; color: white; border-color: #3b82f6; }
+
+.sidebar-filter-btn .filter-count {
+    background: rgba(255,255,255,0.25);
+    color: inherit;
+    padding: 0.05rem 0.3rem;
+    border-radius: 8px;
+    font-size: 0.65rem;
+}
+
+.sidebar-interactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.sidebar-interactions-list::-webkit-scrollbar { width: 3px; }
+.sidebar-interactions-list::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+
+.sidebar-interaction-item {
+    display: block;
+    padding: 0.625rem 0.5rem;
+    border-radius: 6px;
+    background: #f8f9fa;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.sidebar-interaction-item:hover { background: #f0f7ff; }
+
+.sidebar-interaction-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-interaction-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    color: #999;
+}
+
+.sidebar-interaction-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.sidebar-empty {
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+    color: #ccc;
+    font-size: 0.75rem;
+}
+
+.sidebar-empty i {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* 预览内容 */
+.preview-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+.preview-content h2 { font-size: 1.5rem; margin: 1rem 0 0.5rem; }
+.preview-content h3 { font-size: 1.25rem; margin: 0.75rem 0 0.5rem; }
+.preview-content blockquote {
+    border-left: 3px solid #3b82f6;
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+    color: #666;
+}
+.preview-content pre {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.preview-content img { max-width: 100%; height: auto; }
+
+/* ==================== 响应式布局 ==================== */
+@media (max-width: 768px) {
+    .admin-layout { grid-template-columns: 1fr; gap: 0.75rem; }
+    .admin-sidebar { position: static; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .admin-nav { flex-direction: row; flex-wrap: nowrap; gap: 0.25rem; padding: 0.5rem; width: max-content; min-width: 100%; }
+    .admin-nav-item { padding: 0.5rem 0.625rem; font-size: 0.75rem; gap: 0.375rem; white-space: nowrap; flex-shrink: 0; }
+    .admin-card { padding: 1rem 0.75rem; }
+    .admin-card h2 { font-size: 1rem; }
+    .my-articles-header { flex-direction: column; gap: 0.75rem; align-items: stretch; }
+    .my-articles-header h2 { font-size: 1rem; margin-bottom: 0; }
+    .my-articles-header .btn { width: 100%; text-align: center; justify-content: center; }
+    .filter-bar { flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem; padding-bottom: 0.75rem; }
+    .filter-btn { flex: 1; min-width: 0; padding: 0.35rem 0.5rem; font-size: 0.7rem; text-align: center; justify-content: center; }
+    .my-article-item { flex-direction: column; align-items: stretch; padding: 0.75rem; gap: 0.5rem; }
+    .my-article-info h4 { white-space: normal; word-break: break-word; font-size: 0.9rem; }
+    .my-article-meta { flex-wrap: wrap; gap: 0.5rem; }
+    .my-article-actions { width: 100%; justify-content: flex-end; gap: 0.375rem; }
+    .my-article-actions .btn { flex: 1; text-align: center; justify-content: center; padding: 0.5rem 0.5rem; font-size: 0.7rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .avatar-upload { flex-direction: column; text-align: center; }
+    .input-with-btn { flex-direction: column; gap: 0.375rem; }
+    .input-with-btn .btn { width: 100%; text-align: center; justify-content: center; }
+    .modal-content { width: 92%; max-width: 360px; }
+    .modal-body { padding: 1rem; }
+}
