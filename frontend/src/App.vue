@@ -65,6 +65,20 @@
       </nav>
   </header>
 
+  <el-alert
+    v-if="shouldShowPublicNotice && publicAnnouncement.display_mode === 'marquee'"
+    type="info"
+    :closable="false"
+    show-icon
+    class="global-marquee"
+  >
+    <template #title>
+      <div class="global-marquee-track">
+        <span>{{ publicAnnouncement.content }}</span>
+      </div>
+    </template>
+  </el-alert>
+
   <main :class="hideShell ? 'main-container-shellless' : 'main-container'">
     <RouterView />
   </main>
@@ -73,12 +87,28 @@
       <hr />
       <div class="footer-tip">静泊小筑 · 用代码记录成长，用文字分享经验</div>
   </div>
+
+  <el-dialog
+    v-model="showPublicAnnouncementModal"
+    title="全站公告"
+    width="min(520px, calc(100vw - 24px))"
+    :before-close="onPublicAnnouncementDialogClose"
+    :show-close="true"
+    align-center
+    destroy-on-close
+    class="global-notice-dialog"
+  >
+    <div v-if="shouldShowPublicNotice && publicAnnouncement.display_mode === 'modal'" class="global-notice-card">
+      <p>{{ publicAnnouncement.content }}</p>
+      <button class="global-notice-btn" @click="closePublicAnnouncementModal">我知道了</button>
+    </div>
+  </el-dialog>
 </template>
 
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { RouterLink, RouterView, useRoute, useRouter } from "vue-router";
-import { currentUser, logout } from "./services/api";
+import { currentUser, getPublicAnnouncement, logout } from "./services/api";
 
 const route = useRoute();
 const router = useRouter();
@@ -86,12 +116,27 @@ const authAreaRef = ref(null);
 const user = ref(null);
 const mobileOpen = ref(false);
 const userMenuOpen = ref(false);
+const showPublicAnnouncementModal = ref(false);
+const publicAnnouncement = ref({
+  enabled: false,
+  content: "",
+  display_mode: "marquee"
+});
 
 const routeStyleLinks = new Map();
+const PUBLIC_ANNOUNCEMENT_SEEN_KEY = "public_announcement_seen";
 
 const isLoggedIn = computed(() => !!user.value?.username);
 const displayName = computed(() => user.value?.nickname || user.value?.username || "");
 const hideShell = computed(() => route.meta?.shell === "none");
+const isAdminRoute = computed(() => route.path.startsWith("/admin"));
+const shouldShowPublicNotice = computed(
+  () =>
+    !hideShell.value &&
+    !isAdminRoute.value &&
+    !!publicAnnouncement.value?.enabled &&
+    !!publicAnnouncement.value?.content
+);
 
 function isTopActive(path) {
   if (path === "/") return route.path === "/";
@@ -105,6 +150,41 @@ async function loadUser() {
   } catch {
     user.value = null;
   }
+}
+
+async function loadPublicAnnouncement() {
+  try {
+    const res = await getPublicAnnouncement();
+    const data = res?.data || {};
+    const fingerprint = `${data.updated_at || ""}|${data.display_mode || "marquee"}|${data.content || ""}`;
+    const seenFingerprint = sessionStorage.getItem(PUBLIC_ANNOUNCEMENT_SEEN_KEY) || "";
+    publicAnnouncement.value = {
+      enabled: !!data.enabled,
+      content: data.content || "",
+      display_mode: data.display_mode || "marquee",
+      updated_at: data.updated_at || ""
+    };
+    showPublicAnnouncementModal.value =
+      publicAnnouncement.value.enabled &&
+      publicAnnouncement.value.display_mode === "modal" &&
+      !isAdminRoute.value &&
+      !!publicAnnouncement.value.content &&
+      fingerprint !== seenFingerprint;
+  } catch {
+    publicAnnouncement.value = { enabled: false, content: "", display_mode: "marquee", updated_at: "" };
+    showPublicAnnouncementModal.value = false;
+  }
+}
+
+function closePublicAnnouncementModal() {
+  const fingerprint = `${publicAnnouncement.value.updated_at || ""}|${publicAnnouncement.value.display_mode || "marquee"}|${publicAnnouncement.value.content || ""}`;
+  sessionStorage.setItem(PUBLIC_ANNOUNCEMENT_SEEN_KEY, fingerprint);
+  showPublicAnnouncementModal.value = false;
+}
+
+function onPublicAnnouncementDialogClose(done) {
+  closePublicAnnouncementModal();
+  done();
 }
 
 function goLogin() {
@@ -166,6 +246,9 @@ watch(
     mobileOpen.value = false;
     userMenuOpen.value = false;
     updateRouteStyles();
+    if (!isAdminRoute.value) {
+      loadPublicAnnouncement();
+    }
   },
   { immediate: true }
 );
@@ -185,3 +268,51 @@ onUnmounted(() => {
   routeStyleLinks.clear();
 });
 </script>
+
+<style scoped>
+.global-marquee {
+  width: 100%;
+  overflow: hidden !important;
+  border: 1px solid #d8e6ff;
+  border-radius: 0;
+  background: #eef5ff !important;
+  color: #1e60c9;
+  padding: 8px 10px;
+}
+
+.global-marquee-track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  animation: public-marquee 18s linear infinite;
+  font-weight: 600;
+  will-change: transform;
+}
+
+.global-marquee-track span {
+  margin-right: 72px;
+}
+
+@keyframes public-marquee {
+  from { transform: translateX(calc(100vw)); }
+  to { transform: translateX(-100%); }
+}
+
+.global-notice-card {
+  padding: 2px 0 0;
+}
+
+.global-notice-card p {
+  margin: 0 0 14px;
+  color: #425b7f;
+}
+
+.global-notice-btn {
+  border: 0;
+  border-radius: 10px;
+  background: #2f74db;
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+</style>

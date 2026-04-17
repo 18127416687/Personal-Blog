@@ -23,6 +23,7 @@ blog/
 │  ├─ public/static/
 │  ├─ package.json
 │  └─ vite.config.js
+├─ scripts/
 └─ README.md
 ```
 
@@ -90,6 +91,11 @@ npm run dev
 
 前端默认地址：`http://127.0.0.1:5173`
 
+前端使用 Vue 3 + Vite，并已集成：
+
+- `element-plus`（管理后台组件）
+- `echarts` + `vue-echarts`（数据图表）
+
 ### 一键启动（Windows PowerShell）
 
 在项目根目录执行：
@@ -114,5 +120,5 @@ Vite 已配置：
 ## 迁移说明
 
 - 原 HTML/CSS/JS 静态页面已迁到 `frontend/public/static/`，用于过渡。
-- 根目录仍可见的旧 `app.py / routes / static` 等属于历史遗留副本，后续将统一清理。
+- 项目已完成前后端分离，开发与部署请以 `backend/` 和 `frontend/` 目录为准。
 - 后端详细说明见 `backend/README.md`。

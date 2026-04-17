@@ -192,6 +192,10 @@ export function getAdminAnnouncement() {
   return request("/api/admin/announcement");
 }
 
+export function getPublicAnnouncement() {
+  return request("/api/announcement");
+}
+
 export function updateAdminAnnouncement(payload) {
   return request("/api/admin/announcement", {
     method: "PUT",

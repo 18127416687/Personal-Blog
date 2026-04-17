@@ -7,6 +7,9 @@ __pycache__/
 .ruff_cache/
 .pytest_cache/
 .mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
 
 # Flask runtime
 backend/instance/*.db
@@ -16,6 +19,7 @@ backend/uploads/
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+frontend/.cache/
 
 # IDE and OS
 .vscode/
@@ -44,5 +48,9 @@ backend/**/newfresh.db-journal
 
 # Environment files
 .env
+/.env.*
 backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
 backend/admin_verify.db

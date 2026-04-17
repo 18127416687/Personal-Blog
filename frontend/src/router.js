@@ -73,7 +73,7 @@ const routes = [
     }
   },
   { path: "/admin-login", name: "admin-login", component: AdminLoginView, meta: { shell: "none" } },
-  { path: "/admin", name: "admin", component: AdminDashboardView },
+  { path: "/admin", name: "admin", component: AdminDashboardView, meta: { shell: "none" } },
   { path: "/:pathMatch(.*)*", redirect: "/" }
 ];
 
