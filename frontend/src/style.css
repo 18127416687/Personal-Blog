@@ -1,0 +1,38 @@
+@import url('/static/css/style.css');
+@import url('https://cdn.jsdelivr.net/npm/@wangeditor/editor@5.1.23/dist/css/style.css');
+@import url('/static/css/editor-new.css');
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+}
+
+.router-link-active.top-nav-link {
+  color: #3b82f6;
+}
+
+.nav-links .auth-area button {
+  font-size: 14px;
+}
+
+.footer-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.main-container-shellless {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#userMenuContainer {
+  overflow: visible;
+}
+
+#userDropdown {
+  z-index: 4000 !important;
+  pointer-events: auto;
+}

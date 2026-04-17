@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章 · 静泊小筑</title>
+    <!-- Font Awesome 图标 (v6 免费版) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Viewer.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css">
+    <!-- 外部 CSS 文件 -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- 导航 navbar -->
+    <header class="navbar">
+        <div class="logo"><a href="index.html">🌿 静泊小筑</a></div>
+        <button class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" data-page="home">首页</a>
+            <a href="articles.html" data-page="articles" class="active">文章</a>
+            <a href="gallery.html" data-page="gallery">相册</a>
+            <a href="treehole.html" data-page="treehole">树洞</a>
+            <div class="auth-area" id="authArea">
+                <div id="userMenuContainer" style="display:none; position:relative;">
+                    <button id="userMenuBtn" onclick="document.getElementById('userDropdown').classList.toggle('dropdown-open');event.stopPropagation();" style="background:none;border:none;cursor:pointer;padding:0.5rem;border-radius:6px;display:flex;align-items:center;gap:0.5rem;color:#333;font-weight:500;">
+                        <img id="navAvatar" src="" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;display:none;">
+                        <span id="navUserName"></span>
+                        <i class="fa-solid fa-chevron-down" style="font-size:0.625rem;color:#999;"></i>
+                    </button>
+                    <div id="userDropdown">
+                        <a href="profile.html" class="dropdown-item"><i class="fa-regular fa-user"></i> 个人资料</a>
+                        <a href="editor.html" class="dropdown-item"><i class="fa-regular fa-pen-to-square"></i> 写文章</a>
+                        <a href="my-articles.html" class="dropdown-item"><i class="fa-regular fa-newspaper"></i> 我的文章</a>
+                        <a href="my-drafts.html" class="dropdown-item"><i class="fa-regular fa-file-lines"></i> 草稿箱</a>
+                        <a href="my-photos.html" class="dropdown-item"><i class="fa-regular fa-images"></i> 我的相册</a>
+                        <hr style="border:none;border-top:1px solid #f0f0f0;margin:0.25rem 0;">
+                        <button id="logoutBtnDropdown" style="width:100%;text-align:left;background:none;border:none;padding:0.5rem 0.75rem;border-radius:4px;cursor:pointer;color:#ef4444;font-size:0.875rem;display:flex;align-items:center;gap:0.5rem;"><i class="fa-solid fa-right-from-bracket"></i> 注销</button>
+                    </div>
+                </div>
+                <button id="loginBtn"><i class="fa-regular fa-user"></i> 登录</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <!-- 文章列表 (已更新：缩略图、阅读/点赞/收藏) -->
+        <section id="articles" class="page active-page">
+            <h2 style="margin-bottom:1rem;"><i class="fa-regular fa-newspaper"></i> 最新随笔</h2>
+            <div style="margin-bottom:1.5rem;">
+                <div style="display:flex;gap:0.75rem;max-width:500px;">
+                    <input type="text" id="articleSearchInput" placeholder="搜索文章标题、标签、作者..." style="flex:1;padding:0.6rem 1rem;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;outline:none;">
+                    <button id="articleSearchBtn" style="padding:0.6rem 1.25rem;border:none;border-radius:6px;background:#3b82f6;color:white;cursor:pointer;font-weight:500;white-space:nowrap;"><i class="fa-solid fa-magnifying-glass"></i> 搜索</button>
+                </div>
+            </div>
+            <div id="tagFilterBar" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;"></div>
+            <div class="blog-grid">
+                
+            </div>
+        </section>
+    </main>
+
+    <div style="max-width:1300px; margin:0 auto; padding:0 2rem;">
+        <hr>
+        <div class="footer-tip">
+            ✨ 静泊小筑 · 用代码记录成长，用文字分享经验        </div>
+    </div>
+
+    <!-- Viewer.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+    <!-- 外部 JS 文件 -->
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JASON LOGBOOK - 个人博客新版</title>
+  <meta name="description" content="Jason 的个人博客前端静态改版，杂志式排版与叙事风格。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar reveal">
+    <p class="brand">JASON LOGBOOK</p>
+    <nav>
+      <a href="#featured">精选文章</a>
+      <a href="#timeline">成长时间线</a>
+      <a href="#notes">灵感卡片</a>
+      <a href="#subscribe">订阅</a>
+    </nav>
+    <p id="clock" class="clock"></p>
+  </header>
+
+  <main>
+    <section class="hero reveal">
+      <p class="hero-kicker">PERSONAL ARCHIVE / SINCE 2021</p>
+      <h1>
+        技术是骨架，
+        <span>文字是温度。</span>
+      </h1>
+      <p class="hero-intro">
+        这里记录我写代码、拍照片、折腾产品、以及慢慢变清晰的思考。
+        每篇文章都像一张时间切片，既给过去存档，也给未来留线索。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#featured">开始阅读</a>
+        <a class="btn btn-outline" href="#timeline">查看成长轨迹</a>
+      </div>
+    </section>
+
+    <section id="featured" class="featured reveal">
+      <div class="section-head">
+        <p class="en">FEATURED STORIES</p>
+        <h2>近期精选</h2>
+      </div>
+      <article class="feature-main">
+        <p class="label">封面文章</p>
+        <h3>从 0 到 1：把个人博客打造成长期创作系统</h3>
+        <p>
+          我不再把博客当作“文章展示页”，而是把它当作“工作流中枢”。
+          这篇复盘分享了我如何设计内容结构、更新机制和自我反馈闭环。
+        </p>
+        <div class="meta">
+          <span>2026.04.12</span>
+          <span>12 分钟阅读</span>
+          <span>#产品思维 #写作系统</span>
+        </div>
+      </article>
+      <div class="feature-grid">
+        <article>
+          <p class="label">开发日志</p>
+          <h3>Flask 博客后台重构：从“能跑”到“可维护”</h3>
+          <p>拆分路由、抽离公共逻辑、重写样式层，让迭代速度回到正轨。</p>
+        </article>
+        <article>
+          <p class="label">摄影札记</p>
+          <h3>凌晨五点的街道光影：一周 50 张照片复盘</h3>
+          <p>从构图失败里找规律，建立了自己的城市晨拍模板。</p>
+        </article>
+        <article>
+          <p class="label">思考备忘</p>
+          <h3>为什么“稳定输出”比“偶尔爆发”更难也更重要</h3>
+          <p>创作不是灵感竞技，而是节奏工程。我的方法是周更+轻量复盘。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="timeline" class="timeline reveal">
+      <div class="section-head">
+        <p class="en">TIMELINE</p>
+        <h2>成长时间线</h2>
+      </div>
+      <ul>
+        <li>
+          <span>2026</span>
+          <p>博客改版 3.0，建立文章、照片、互动三条主线。</p>
+        </li>
+        <li>
+          <span>2025</span>
+          <p>开始系统化写作，把零散笔记沉淀为可检索知识库。</p>
+        </li>
+        <li>
+          <span>2024</span>
+          <p>首次尝试前后端全栈独立开发，完成第一个内容平台原型。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="notes" class="notes reveal">
+      <div class="section-head">
+        <p class="en">QUICK NOTES</p>
+        <h2>灵感卡片</h2>
+      </div>
+      <div class="notes-grid">
+        <article>
+          <h3>写作原则</h3>
+          <p>先写结论，再补过程；先解决一个问题，再追求完整体系。</p>
+        </article>
+        <article>
+          <h3>产品原则</h3>
+          <p>界面是承诺，不是装饰。每个按钮都应该回答“下一步是什么”。</p>
+        </article>
+        <article>
+          <h3>生活原则</h3>
+          <p>把注意力留给长期有效的事，短期刺激会很快透支热情。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="subscribe" class="subscribe reveal">
+    <p class="en">NEWSLETTER</p>
+    <h2>每周一封创作简报</h2>
+    <p>记录技术实践、写作方法和真实踩坑。没有鸡汤，只有可复用经验。</p>
+    <form>
+      <input type="email" placeholder="输入你的邮箱" aria-label="邮箱" />
+      <button type="button">订阅更新</button>
+    </form>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

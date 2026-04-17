@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索中心 - 静泊小筑</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/search-page.css">
+</head>
+<body>
+    <main class="search-shell">
+        <a class="back-home" href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            返回首页
+        </a>
+
+        <section class="search-panel">
+            <div class="clock-wrap" aria-live="polite">
+                <p id="liveTime" class="live-time">00:00:00</p>
+                <p id="liveDate" class="live-date">0000年00月00日 周一</p>
+            </div>
+
+            <div class="search-area" id="searchArea">
+                <div class="search-capsule">
+                    <button type="button" class="engine-trigger" id="engineTrigger" aria-expanded="false" aria-controls="engineList">
+                        <span id="selectedEngineIcon" class="engine-icon"></span>
+                        <span id="selectedEngineText">百度</span>
+                        <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+
+                    <input type="text" id="searchInput" class="search-input" placeholder="输入关键词开始搜索..." autocomplete="off">
+
+                    <button type="button" id="searchAction" class="search-action" aria-label="搜索">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                    </button>
+                </div>
+
+                <div id="engineList" class="engine-list" role="listbox" aria-label="搜索引擎">
+                    <button type="button" class="engine-item is-active" data-engine="baidu" role="option" aria-selected="true">
+                        <span class="engine-icon" data-engine-icon></span><span>百度</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="bing" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>必应</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="google" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>Google</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="sogou" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>搜狗</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="360" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>360 搜索</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="weibo" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>微博</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="bilibili" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>BiliBili</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="github" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>Github</span>
+                    </button>
+                    <button type="button" class="engine-item" data-engine="zhihu" role="option" aria-selected="false">
+                        <span class="engine-icon" data-engine-icon></span><span>知乎</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/search-page.js"></script>
+</body>
+</html>
+
+

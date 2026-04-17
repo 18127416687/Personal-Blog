@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Flux Atelier - 创意艺术博客</title>
+  <meta name="description" content="抽象艺术风个人博客静态页面，带动态交互与微博热搜榜。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg-canvas" aria-hidden="true">
+    <span class="blob blob-a"></span>
+    <span class="blob blob-b"></span>
+    <span class="blob blob-c"></span>
+    <span class="grid-wave"></span>
+    <span id="cursorAura" class="cursor-aura"></span>
+  </div>
+
+  <header class="top-nav reveal" data-speed="0.18">
+    <a class="logo" href="#">JASON<br />FLUX</a>
+    <nav>
+      <a href="#manifesto">宣言</a>
+      <a href="#works">作品</a>
+      <a href="#thoughts">思维碎片</a>
+      <a href="#weibo-hot">微博热搜</a>
+    </nav>
+    <button class="sound-btn" type="button" id="pulseToggle">动效节奏: ON</button>
+  </header>
+
+  <main>
+    <section class="hero reveal" data-speed="0.1">
+      <p class="eyebrow">ART TECH MEMORY / PERSONAL PLAYGROUND</p>
+      <h1>
+        在抽象与代码之间，
+        <span>把日常写成流动的形状。</span>
+      </h1>
+      <p>
+        这是我的数字画室：文章是笔触，项目是材质，思考是光。每一次滚动都不是翻页，而是穿过一层新的情绪和结构。
+      </p>
+      <div class="hero-actions">
+        <a href="#works" class="btn btn-solid">进入作品层</a>
+        <a href="#weibo-hot" class="btn btn-ghost">看今日热搜脉冲</a>
+      </div>
+      <div class="signal-bar" aria-label="创作强度">
+        <span style="--h:72%"></span>
+        <span style="--h:38%"></span>
+        <span style="--h:86%"></span>
+        <span style="--h:59%"></span>
+        <span style="--h:94%"></span>
+      </div>
+    </section>
+
+    <section id="manifesto" class="manifesto reveal" data-speed="0.2">
+      <h2>创作宣言</h2>
+      <p>
+        我偏爱不规则的界面，因为真实的成长本就不对齐。内容不是被模块化陈列，而是被情绪牵引；
+        交互不是功能解释，而是节奏表达。
+      </p>
+      <p>
+        这里的一切都在缓慢运动：光影、层次、信息密度，像一幅持续生成中的数字抽象画。
+      </p>
+    </section>
+
+    <section id="works" class="works reveal" data-speed="0.16">
+      <div class="section-title">
+        <p>RECENT EXPERIMENTS</p>
+        <h2>近期创作轨迹</h2>
+      </div>
+      <div class="work-grid">
+        <article class="work-card tilt-card">
+          <h3>流形博客引擎</h3>
+          <p>把文章、图片、互动整合为可演化内容系统，支持多维度叙事结构。</p>
+          <span>#系统设计 #Flask</span>
+        </article>
+        <article class="work-card tilt-card">
+          <h3>凌晨街拍色域计划</h3>
+          <p>记录城市在 05:00-06:00 的颜色变化，用摄影建立时间纹理档案。</p>
+          <span>#摄影 #视觉采样</span>
+        </article>
+        <article class="work-card tilt-card">
+          <h3>思维回音地图</h3>
+          <p>每周提炼 3 条核心洞见，用可视化结构追踪认知迭代过程。</p>
+          <span>#写作方法 #知识管理</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="thoughts" class="thoughts reveal" data-speed="0.14">
+      <div class="section-title">
+        <p>THOUGHT FRAGMENTS</p>
+        <h2>思维碎片</h2>
+      </div>
+      <div class="thought-list">
+        <article>
+          <h3>01 / 稳定输出不是自律，是结构设计</h3>
+          <p>当流程正确，意志力只需要做最后一公里。</p>
+        </article>
+        <article>
+          <h3>02 / 真正的灵感来自复盘，而非等待</h3>
+          <p>回看失败记录，常常比追逐新信息更高效。</p>
+        </article>
+        <article>
+          <h3>03 / 创意需要限制，限制会逼出风格</h3>
+          <p>限定时间、工具和目标，反而更容易形成辨识度。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="weibo-hot" class="weibo-hot reveal" data-speed="0.22">
+      <div class="section-title hot-head">
+        <p>WEIBO HOT SEARCH</p>
+        <h2>微博热搜榜</h2>
+      </div>
+      <p class="hot-sub">艺术化展示版，支持自动轮播和热度动态波动。</p>
+      <ul id="hotList" class="hot-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer reveal" data-speed="0.08">
+    <p>JASON FLUX ATELIER</p>
+    <p id="timeStamp"></p>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

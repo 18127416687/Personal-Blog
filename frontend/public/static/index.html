@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静泊小筑 · 个人博客</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="index.html">🌿 静泊小筑</a></div>
+        <button class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" data-page="home" class="active">首页</a>
+            <a href="articles.html" data-page="articles">文章</a>
+            <a href="gallery.html" data-page="gallery">相册</a>
+            <a href="treehole.html" data-page="treehole">树洞</a>
+            <div class="auth-area" id="authArea">
+                <div id="userMenuContainer" style="display:none; position:relative;">
+                    <button id="userMenuBtn" onclick="document.getElementById('userDropdown').classList.toggle('dropdown-open');event.stopPropagation();" style="background:none;border:none;cursor:pointer;padding:0.5rem;border-radius:6px;display:flex;align-items:center;gap:0.5rem;color:#333;font-weight:500;">
+                        <img id="navAvatar" src="" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;display:none;">
+                        <span id="navUserName"></span>
+                        <i class="fa-solid fa-chevron-down" style="font-size:0.625rem;color:#999;"></i>
+                    </button>
+                    <div id="userDropdown">
+                        <a href="profile.html" class="dropdown-item"><i class="fa-regular fa-user"></i> 个人资料</a>
+                        <a href="editor.html" class="dropdown-item"><i class="fa-regular fa-pen-to-square"></i> 写文章</a>
+                        <a href="my-articles.html" class="dropdown-item"><i class="fa-regular fa-newspaper"></i> 我的文章</a>
+                        <a href="my-drafts.html" class="dropdown-item"><i class="fa-regular fa-file-lines"></i> 草稿箱</a>
+                        <a href="my-photos.html" class="dropdown-item"><i class="fa-regular fa-images"></i> 我的相册</a>
+                        <hr style="border:none;border-top:1px solid #f0f0f0;margin:0.25rem 0;">
+                        <button id="logoutBtnDropdown" style="width:100%;text-align:left;background:none;border:none;padding:0.5rem 0.75rem;border-radius:4px;cursor:pointer;color:#ef4444;font-size:0.875rem;display:flex;align-items:center;gap:0.5rem;"><i class="fa-solid fa-right-from-bracket"></i> 注销</button>
+                    </div>
+                </div>
+                <button id="loginBtn"><i class="fa-regular fa-user"></i> 登录</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="home-layout">
+            <aside class="home-sidebar">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="https://picsum.photos/200/200?random=999" alt="头像">
+                    </div>
+                    <h3 class="profile-name">程序员逗号</h3>
+                    <p class="profile-bio">热爱技术，热爱生活。用代码记录成长，用文字分享经验。</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">42</span>
+                            <span class="profile-stat-label">文章</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">128</span>
+                            <span class="profile-stat-label">标签</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">1.2k</span>
+                            <span class="profile-stat-label">访问</span>
+                        </div>
+                    </div>
+                    <div class="profile-social">
+                        <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" title="邮箱"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="#" title="RSS"><i class="fa-solid fa-rss"></i></a>
+                    </div>
+                </div>
+
+                <div class="nav-card">
+                    <h4><i class="fa-solid fa-compass"></i> 快捷导航</h4>
+                    <div class="quick-nav-grid">
+                        <a href="articles.html" class="quick-nav-item">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <span>文章</span>
+                        </a>
+                        <a href="gallery.html" class="quick-nav-item">
+                            <i class="fa-regular fa-images"></i>
+                            <span>相册</span>
+                        </a>
+                        <a href="treehole.html" class="quick-nav-item">
+                            <i class="fa-regular fa-comment-dots"></i>
+                            <span>树洞</span>
+                        </a>
+                        <a href="search.html" class="quick-nav-item">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>搜索</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="home-content">
+                <div class="weibo-hot-card" id="weiboHotCard">
+                    <div class="weibo-hot-header">
+                        <h4><i class="fa-brands fa-weibo"></i> 微博热搜</h4>
+                        <span class="refresh-timer" id="weiboRefreshTimer"></span>
+                    </div>
+                    <div class="weibo-hot-list" id="weiboHotList">
+                        <div class="loading-placeholder" style="text-align:center;padding:1rem;color:#999;"><i class="fa-solid fa-spinner fa-spin"></i> 加载中...</div>
+                    </div>
+                </div>
+
+                <div class="tags-card">
+                    <h4><i class="fa-solid fa-tags"></i> 热门标签</h4>
+                    <div class="tag-cloud" id="popularTags">
+                        <div class="loading-placeholder" style="text-align:center;padding:1rem;color:#999;"><i class="fa-solid fa-spinner fa-spin"></i> 加载中...</div>
+                    </div>
+                </div>
+
+                <div class="latest-articles-card">
+                    <div class="card-header">
+                        <h4><i class="fa-regular fa-clock"></i> 最新文章</h4>
+                        <a href="articles.html" class="view-all">查看全部 <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="latest-articles-list" id="latestArticles">
+                        <div class="loading-placeholder" style="text-align:center;padding:2rem;color:#999;"><i class="fa-solid fa-spinner fa-spin"></i> 加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer-wrapper">
+        <hr>
+        <div class="footer-tip">
+            ✨ 静泊小筑 · 用代码记录成长，用文字分享经验
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/current_user')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.username) {
+                        const name = data.nickname || data.username;
+                        const nameEl = document.querySelector('.profile-name');
+                        if (nameEl) nameEl.textContent = name;
+                        if (data.avatar) {
+                            const avatarImg = document.querySelector('.profile-avatar img');
+                            if (avatarImg) avatarImg.src = data.avatar;
+                        }
+                        if (data.bio) {
+                            const bioEl = document.querySelector('.profile-bio');
+                            if (bioEl) bioEl.textContent = data.bio;
+                        }
+                    }
+                })
+                .catch(() => {});
+        });
+    </script>
+</body>
+</html>
+
+
+

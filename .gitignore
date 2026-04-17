@@ -1,0 +1,48 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Flask runtime
+backend/instance/*.db
+backend/uploads/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local temp artifacts
+.tmp/
+*.log
+
+# Local brainstorm artifacts
+.superpowers/
+.codex/
+
+# Backend runtime artifacts
+backend/**/*.db-journal
+backend/**/__pycache__/
+backend/**/.__codex_sqlite_probe__.tmp
+backend/**/write_probe*.db
+backend/**/write_probe*.db-journal
+backend/**/tmp_*.db
+backend/**/tmp_*.db-journal
+backend/**/newfresh.db
+backend/**/newfresh.db-journal
+
+# Environment files
+.env
+backend/.env
+backend/admin_verify.db
